@@ -19,6 +19,9 @@ export const handler: Handler = async (event, context) => {
     .then(() => {
       return {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({
           message: "success_deleted_user",
         }),
@@ -27,6 +30,9 @@ export const handler: Handler = async (event, context) => {
     .catch((err: any) => {
       return {
         statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({
           message: "failed_deleted_user",
           error: err,

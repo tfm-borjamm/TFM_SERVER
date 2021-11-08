@@ -76,12 +76,18 @@ export const handler: Handler = async (event, context) => {
       console.log("Message sent: %s", info.messageId);
       return {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({ message: "success_message_sent" }),
       };
     })
     .catch((err) => {
       return {
         statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({
           message: "failed_message_sent",
           error: err,
