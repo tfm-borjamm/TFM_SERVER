@@ -2,3 +2,7 @@
     functions = "functions"
 [functions."send-email"]
     included_files = ["./functions/send-email/template-email.html"]
+[[headers]]
+    for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
