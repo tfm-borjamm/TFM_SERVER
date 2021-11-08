@@ -1,2 +1,4 @@
 [build]
     functions = "functions"
+[functions."send-email"]
+    included_files = ["./functions/send-email/template-email.html"]
