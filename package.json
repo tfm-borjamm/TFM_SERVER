@@ -1,0 +1,25 @@
+{
+  "name": "tfm_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfm-borjamm/TFM_SERVER.git"
+  },
+  "keywords": [],
+  "author": "Borja Machín Morera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tfm-borjamm/TFM_SERVER/issues"
+  },
+  "homepage": "https://github.com/tfm-borjamm/TFM_SERVER#readme",
+  "dependencies": {
+    "@netlify/functions": "^0.8.0",
+    "@types/node": "^14.17.32",
+    "typescript": "^4.4.4"
+  }
+}
