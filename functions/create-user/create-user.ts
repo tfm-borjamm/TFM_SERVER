@@ -25,7 +25,7 @@ export const handler: Handler = async (event, context) => {
         },
         body: JSON.stringify({
           message: "success_created_user",
-          id: userRecord.uid,
+          user: userRecord,
         }),
       };
     })
