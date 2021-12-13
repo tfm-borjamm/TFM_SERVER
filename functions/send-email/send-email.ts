@@ -39,7 +39,9 @@ export const handler: Handler = async (event, context) => {
     },
   });
 
-  const { email_dest, question_msg, answer_msg, name } = JSON.parse(event.body);
+  const { email_dest, question_msg, answer_msg, name, no_reply } = JSON.parse(
+    event.body
+  );
 
   const filePath = path.join(__dirname, "./template-email.html");
 
@@ -58,6 +60,7 @@ export const handler: Handler = async (event, context) => {
     name: name,
     consult: question_msg,
     reply: answer_msg,
+    no_reply: no_reply,
   };
   const htmlToSend = template(replacements);
   // console.log(htmlToSend);
@@ -66,7 +69,7 @@ export const handler: Handler = async (event, context) => {
     from: `TFM APP <${process.env.EMAIL}>`, // sender address
     to: email_dest,
     subject: `Respuesta de su consulta`, // Subject line
-    text: `Mensage: ${question_msg} + ${answer_msg}`, // plain text body
+    text: `Message: ${question_msg} + ${answer_msg}`, // plain text body
     html: htmlToSend, // html body
   };
 
