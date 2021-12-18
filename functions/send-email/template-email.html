@@ -24,14 +24,15 @@
       .body-wrap {
         width: 100% !important;
         height: 100%;
-        /* background: #f8f8f8; */
+        padding: 32px 0;
         background: #212121;
         color: #ffffff;
       }
 
-      a {
-        color: #71bc37;
+      p > a {
+        color: #7fffd4;
         text-decoration: none;
+        font-weight: 700;
       }
 
       a:hover {
@@ -48,20 +49,6 @@
 
       .text-left {
         text-align: left;
-      }
-
-      .button {
-        display: inline-block;
-        color: white;
-        background: #71bc37;
-        border: solid #71bc37;
-        border-width: 10px 20px 8px;
-        font-weight: bold;
-        border-radius: 4px;
-      }
-
-      .button:hover {
-        text-decoration: none;
       }
 
       h1,
@@ -81,7 +68,6 @@
       h2 {
         font-size: 28px;
         margin: 0;
-        /* color: #000000; */
       }
 
       h3 {
@@ -114,46 +100,24 @@
       .container table {
         width: 100% !important;
         border-collapse: collapse;
+        padding: 32px 0;
       }
 
-      .container .masthead {
-        padding: 40px 0;
-        /* background: #71bc37; */
-        background-color: #2e2e2e;
-        color: white;
-      }
-
-      .container .masthead h1 {
-        margin: 0 auto !important;
-        max-width: 90%;
-        text-transform: uppercase;
+      .container h1 {
+        margin: 30px 0 0 0;
       }
 
       .container .content {
-        /* background: white; */
         background: #2e2e2e;
         padding: 0px 35px;
       }
 
-      .container .content.footer {
-        background: none;
+      .container .content.content--padding-top {
+        padding-top: 30px;
       }
 
-      .container .content.footer p {
-        margin-bottom: 0;
-        color: #888;
-        text-align: center;
-        font-size: 14px;
-      }
-
-      .container .content.footer a {
-        color: #888;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .container .content.footer a:hover {
-        text-decoration: underline;
+      .container .content.content--padding-bottom {
+        padding-bottom: 30px;
       }
 
       .rectangle {
@@ -175,19 +139,15 @@
     <table class="body-wrap">
       <tr>
         <td class="container">
+          {{#ifEquals language 'es'}}
           <table>
             <tr>
-              <td align="center" class="masthead">
-                <h1>Respuesta a su consulta</h1>
+              <td class="content content--padding-top">
+                <h1>Hola {{name}},</h1>
               </td>
             </tr>
             <tr>
-              <td class="content">
-                <h2>Hola {{name}},</h2>
-              </td>
-            </tr>
-            <tr>
-              <td class="content">
+              <td class="content content--padding-bottom">
                 <table class="rectangle">
                   <tr>
                     <td class="title">
@@ -216,13 +176,80 @@
                 <table>
                   <tr>
                     <td>
-                      <p>{{no_reply}}</p>
+                      <p>
+                        Por favor, no responda a este mensaje. En caso de que
+                        necesite hacer otra nueva consulta, dirijase a la
+                        <a
+                          href="https://tfm-borjamm.firebaseapp.com/contact"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >página de contacto</a
+                        >
+                        de la aplicación web y rellene el formulario.
+                      </p>
+                      <p>Muchas gracias.</p>
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
           </table>
+          {{else ifEquals language 'en'}}
+          <table>
+            <tr>
+              <td class="content">
+                <h1>Hello {{name}},</h1>
+              </td>
+            </tr>
+            <tr>
+              <td class="content">
+                <table class="rectangle">
+                  <tr>
+                    <td class="title">
+                      <h5>Your following question has been answered:</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="reply">
+                      <p>{{consult}}</p>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="rectangle">
+                  <tr>
+                    <td class="title">
+                      <h5>The answer has been the following:</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="reply">
+                      <p>{{reply}}</p>
+                    </td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td>
+                      <p>
+                        Please do not reply to this message. In case you need to
+                        make another new question, go to the
+                        <a
+                          href="https://tfm-borjamm.firebaseapp.com/contact"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >contact page</a
+                        >
+                        of the web application and fill out the form.
+                      </p>
+                      <p>Thanks a lot.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          {{/ifEquals}}
         </td>
       </tr>
     </table>

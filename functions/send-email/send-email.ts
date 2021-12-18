@@ -39,7 +39,7 @@ export const handler: Handler = async (event, context) => {
     },
   });
 
-  const { email_dest, question_msg, answer_msg, name, no_reply } = JSON.parse(
+  const { email_dest, question_msg, answer_msg, name, language } = JSON.parse(
     event.body
   );
 
@@ -55,12 +55,16 @@ export const handler: Handler = async (event, context) => {
     })
   );
 
+  handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
+    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+  });
+
   const template = handlebars.compile(html);
   const replacements = {
     name: name,
     consult: question_msg,
     reply: answer_msg,
-    no_reply: no_reply,
+    language: language,
   };
   const htmlToSend = template(replacements);
   // console.log(htmlToSend);
@@ -68,8 +72,11 @@ export const handler: Handler = async (event, context) => {
   const mailOptions = {
     from: `TFM APP <${process.env.EMAIL}>`, // sender address
     to: email_dest,
-    subject: `Respuesta de su consulta`, // Subject line
-    text: `Message: ${question_msg} + ${answer_msg}`, // plain text body
+    subject:
+      language === "es" ? "Respuesta a su consulta" : "Answer to your question", // Subject line
+    text: `${
+      language === "es" ? "Mensaje" : "Message"
+    }: ${question_msg} + ${answer_msg}`, // plain text body
     html: htmlToSend, // html body
   };
 
