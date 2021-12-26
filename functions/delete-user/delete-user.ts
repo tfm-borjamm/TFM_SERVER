@@ -23,7 +23,7 @@ export const handler: Handler = async (event, context) => {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          message: "success_deleted_user",
+          message: "success.user_deleted",
         }),
       };
     })
@@ -34,7 +34,7 @@ export const handler: Handler = async (event, context) => {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          message: "failed_deleted_user",
+          message: "errors.user_deleted",
           error: err,
         }),
       };

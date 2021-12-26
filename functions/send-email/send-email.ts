@@ -89,7 +89,7 @@ export const handler: Handler = async (event, context) => {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
-        body: JSON.stringify({ message: "success_message_sent" }),
+        body: JSON.stringify({ message: "success.message_sent" }),
       };
     })
     .catch((err) => {
@@ -99,7 +99,7 @@ export const handler: Handler = async (event, context) => {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          message: "failed_message_sent",
+          message: "errors.message_sent",
           error: err,
         }),
       };

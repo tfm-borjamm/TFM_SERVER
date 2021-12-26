@@ -24,7 +24,7 @@ export const handler: Handler = async (event, context) => {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          message: "success_created_user",
+          message: "success.user_created",
           user: userRecord,
         }),
       };
@@ -36,7 +36,7 @@ export const handler: Handler = async (event, context) => {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          message: "failed_created_user",
+          message: "errors.user_created",
           error: err,
         }),
       };
